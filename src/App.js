@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, Fragment } from 'react';
+import Fade from 'react-reveal/Fade';
 import Body from "./Components/Body"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
@@ -9,20 +10,19 @@ import {
 import ReactDOM from 'react-dom'
 
 const App = () => {
-  const hHeader = "Header";
-  const hBody = "Body";
-  const hFooter = "Footer";
-
-
-  return (
-    <>
-    <Header hHeader={hHeader} />
-    <BrowserRouter>
-    <Body hBody={hBody}/>
-    <Footer hFooter={hFooter}/>
-    </BrowserRouter>
-
-    </>
-  );
+           return(
+            <>
+            <Fade top> <Header /></Fade>
+            <BrowserRouter>
+            <Routes>
+                <Route path='/' element={
+                  <Fade top><Body /></Fade>
+                }/>
+            </Routes>
+            </BrowserRouter>
+            <Fade top><Footer /></Fade>
+            </>
+           )
 }
+
 export default App;

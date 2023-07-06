@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {ContainerFooter} from "./style.js"
-const Footer = ({hFooter}) =>{
+const Footer = () =>{
     return(
         <ContainerFooter>
-            <p>{hFooter}</p>
+            <p></p>
         </ContainerFooter>
     )
 }
