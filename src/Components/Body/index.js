@@ -1,46 +1,92 @@
 import React, {useState} from "react";
-import {ContainerBody, Text} from "./style.js"
+import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved} from "./style.js"
+import Fade from 'react-reveal/Fade';
+import Bounce from 'react-reveal/Bounce';
+import { imageListItemBarClasses } from "@mui/material";
+import Alert from '@mui/material/Alert';
 
 const Body = () =>{
     const [UserInput, setUserInput] = useState("")
     const [aboba, setAboba] = useState(false)
+
+    const [taskSolved1, settaskSolved1] = useState(false)
+    const [taskSolved2, settaskSolved2] = useState(false)
+
     const handlerOnChangeInput = (event) => {
         setUserInput(event.target.value)
         console.log(event)
      }
 
+     const [stateBody, setStateBody] = useState(true)
+
+     const buttonClick = () => {
+        console.log(stateBody);
+        setStateBody(!stateBody);
+    }
+
     return(
         <>
         <ContainerBody>
-           <h1>База знаний для CTF'еров</h1>
-           <br></br>
-           <br></br>
-           <br></br>
-           <br></br>
-           <Text><p>Этот сайт изачально был создан для учеников нашего курса на Stepik, 
-            но будет интересен к ознакомлению всем, кто когда-либо интересовался игровой информационной безопасностью. 
-            Здесь собраны различные ссылки на ресурсы и другая полезная  информация.</p>
-            <p>Укажите, пожалуйста, как к вам обращаться?</p>
-            </Text>
-            <br></br>
-            <br></br>
-            <br></br>
-            <input value={UserInput} onChange={handlerOnChangeInput}/>
-            <button onClick={()=>{setUserInput("")}}>Clear</button>
-            <button onClick={() => {setAboba(!aboba)}}>Change</button>
-            {aboba === true && <h1>{UserInput}</h1>}    
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+            <Fade>
+            <BlackTheme>
+                <a name ="flag_point"></a>
+                <Fade left big><SmallInfoBlock><img src={"https://png.pngtree.com/png-clipart/20230221/ourmid/pngtree-free-transparent-blank-waving-flag-png-image_6611961.png"}/></SmallInfoBlock></Fade>
+                <Fade left big>
+                <SmallInfoBlock>
+                    <Text>
+                        <p>Ну смотри, {UserInput}</p>
+                        <p>CTF — <span className="GreenText">Capture The Flag</span>, также известный под русифицированным вариантом — Захват флага, это игровая информационная безопасность, набирающая
+                        большую популярность за последние годы. За основу взяты инструменты и приемы реальных безопасников, но на работе как правило нет таких <span className="GreenText">"уцуцуг"</span>, как в CTF. 
+                        И нет, {UserInput}, это не означает, что после нескольких занятий <span className="GreenText">ты сможешь взломать</span> бабушкин чайник или профиль Одноклассника. Вас познакомят с уязвимостями 
+                        и многим другим, чтобы в том числе не <span className="GreenText">стать жертвой злоумышленников</span>. CTF разделен на несколько разделов, так что каждый найдет что-то для себя!
+                        </p>
+                    </Text>
+                </SmallInfoBlock>
+                </Fade>
+            </BlackTheme>
+            <Bounce><Meloch><p><span className="GreenText">Играя в CTF, ты не становишься инфобез специалистом!</span></p></Meloch></Bounce>
+            </Fade>
+            <Fade>
+            <BlackTheme>
+            <BigInfoBlock>
+                    <a name ="games_format"></a>
+                    <Text>
+                        <p>{UserInput}, давай теперь познакомимся с форматами игр.</p>
+                        <p>
+                            CTF соревнования обычно рассчитаны для команд 3-5 человек для широкого спектора возрастов, также есть 2 основных формата
+                            проведения. Еще существует так называемый Pentest, но его почти не используют.
+                        </p>
+                    </Text>
+            </BigInfoBlock>
+            </BlackTheme>
+            <BlackTheme>
+            
+                    <SmallInfoBlock>
+                        <button className="Button1" onClick={() => {settaskSolved1(!taskSolved1)}}> Решить задачу</button>
+                        {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}
+
+                        <Text>
+                        <p>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</p>
+                        <p>Продолжительность: от часа до нескольких дней</p>
+                        <p>Легко организовать</p>
+                        </Text>
+                    </SmallInfoBlock>
+
+                    <SmallInfoBlock>
+                        <button className="Button1" onClick={() => {settaskSolved2(!taskSolved2)}}> Решить задачу</button>
+                        
+                            {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
+                        <Text>
+                        <p>Командам выдается сервер, который на протяжении всего соревнования участники должны корректно поддерживать его работу и захватывать флаги чужых команд</p>
+                        <p>Совсем не подходит для начинающих</p>
+                        <p>Продолжительность: от 4 часов до нескольких дней</p>
+                        <p>Сложно организовать</p>
+                        </Text>
+                    </SmallInfoBlock>
+                    
+            
+            </BlackTheme>
+            </Fade>
         </ContainerBody>
         
         </>

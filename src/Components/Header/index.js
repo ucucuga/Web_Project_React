@@ -12,14 +12,15 @@ import InfoIcon from '@mui/icons-material/Info';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import {Link} from "react-router-dom"
 
 const Header = () => {
   return (
     <ContainerHeader>
       <Grid><H2><Bounce><h2>CTF</h2></Bounce></H2></Grid>
       <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <WavingHandIcon fontSize="large" /></StyledIcons></Grid>
-      <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <AssistantPhotoIcon fontSize="large" /></StyledIcons></Grid>
-      <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <PublicIcon fontSize="large" /></StyledIcons></Grid>
+      <Grid><StyledIcons href="#flag_point"> <AssistantPhotoIcon fontSize="large" /></StyledIcons></Grid>
+      <Grid><StyledIcons href="#games_format"> <PublicIcon fontSize="large" /></StyledIcons></Grid>
       <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <InfoIcon fontSize="large" /></StyledIcons></Grid>
     </ContainerHeader>    
   );

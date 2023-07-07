@@ -3,6 +3,8 @@ import Fade from 'react-reveal/Fade';
 import Body from "./Components/Body"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
+import Welcome from "./Components/Welcome"
+import Resources_1 from "./Components/Resources_1"
 import {
   Routes,
   Route, BrowserRouter,
@@ -10,14 +12,15 @@ import {
 import ReactDOM from 'react-dom'
 
 const App = () => {
+
            return(
             <>
             <Fade top> <Header /></Fade>
             <BrowserRouter>
             <Routes>
-                <Route path='/' element={
-                  <Fade top><Body /></Fade>
-                }/>
+                <Route path='/' element={<Fade top><Welcome/></Fade>}/>
+                <Route path='/main-page' element={<Fade top><Body/></Fade>}/>
+                <Route path='/library' element={<Fade top><Resources_1/></Fade>}/>
             </Routes>
             </BrowserRouter>
             <Fade top><Footer /></Fade>
