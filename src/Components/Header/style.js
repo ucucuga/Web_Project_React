@@ -13,11 +13,6 @@ export const ContainerHeader = styled.div`
     margin-bottom: 10px;
     
 `;
-export const StyledIcons =styled.a`
-    color: #fdf7f7 ;
-    background-color: #131516;
-    margin: 100px;
-`;
 
 export const H2 =styled.h2`
     margin: 45px;

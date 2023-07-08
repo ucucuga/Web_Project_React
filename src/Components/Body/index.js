@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, PureComponent} from "react";
 import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, ni} from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
-import { imageListItemBarClasses } from "@mui/material";
 import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 const Body = ({}) =>{
     const [UserInput, setUserInput] = useState("")
@@ -19,6 +20,55 @@ const Body = ({}) =>{
         }
       }, []);
 
+      const data = [
+        {
+          name: '10:00',
+          master: 0,
+          hacker: 0,
+          baddy: 0,
+          you: 0,
+        },
+        {
+          name: '12:00',
+          master: 2000,
+          hacker: 1398,
+          baddy: 500,
+          you: 1666,
+        },
+        {
+          name: '14:00',
+          master: 2500,
+          hacker: 5000,
+          baddy: 700,
+          you: 3332
+        },
+        {
+          name: '16:00',
+          master: 2800,
+          hacker: 4500,
+          baddy: 6000,
+          you: 5000,
+        },
+        {
+          name: '18:00',
+          master: 3500,
+          hacker: 4500,
+          baddy: 8000,
+          you: 6666,
+        },
+        {
+          name: '20:00',
+          master: 4000,
+          hacker: 4500,
+          you: 8332,
+        },
+        {
+          name: '23:59',
+          master: 4900,
+          hacker: 7000,
+          you: 10000,
+        },
+      ];
     return(
         <>
         <ContainerBody>
@@ -45,43 +95,63 @@ const Body = ({}) =>{
             <BlackTheme>
             <BigInfoBlock>
                     <a name ="games_format"></a>
-                    <Text>
+                    
                         <p>{UserInput}, давай теперь познакомимся с форматами игр.</p>
                         <p>
                             CTF соревнования обычно рассчитаны для команд 3-5 человек для широкого спектора возрастов, также есть 2 основных формата
-                            проведения. Еще существует так называемый Pentest, но его почти не используют.
+                            проведения. Еще существует так называемый Pentest, но его почти не используют на соревнованиях.
                         </p>
-                    </Text>
             </BigInfoBlock>
             </BlackTheme>
             <BlackTheme>
-                    
-                    <Grid><ni>
+                <Grid>
+                    <LineChart
+                        width={500}
+                        height={300}
+                        data={data}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5
+                        }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="hacker" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="master" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="baddy" stroke="#d88512" />
+                    {taskSolved1 === true &&<Line type="monotone" dataKey="you" stroke="#D90368" />}
+                    </LineChart>
                         <button className="Button1" onClick={() => {settaskSolved1(!taskSolved1)}}> Решить задачу</button>
-                        {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}
-
+                        {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}                        
                         <Text>
                         <p>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</p>
                         <p>Продолжительность: от часа до нескольких дней</p>
                         <p>Легко организовать</p>
                         </Text>
-                    </ni>
+                    
                     </Grid>
                     
                     
                     <Grid><ni>
-                        <button className="Button1" onClick={() => {settaskSolved2(!taskSolved2)}}> Решить задачу</button>
+                        <button className="Button1" onClick={() => {settaskSolved2(!taskSolved2)}}> Атаковать </button>
                         
                         {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
                         <Text>
-                        <p>Командам выдается сервер, который на протяжении всего соревнования участники должны корректно поддерживать его работу и захватывать флаги чужых команд</p>
+                        <p>Командам выдается сервер, который на протяжении всего соревнования 
+                        участники должны корректно поддерживать его работу и захватывать флаги чужых команд</p>
                         <p>Совсем не подходит для начинающих</p>
                         <p>Продолжительность: от 4 часов до нескольких дней</p>
                         <p>Сложно организовать</p>
                         </Text></ni>
                     </Grid>
                     
-            
+                    
+
+      
             </BlackTheme>
             </Fade>
         </ContainerBody>

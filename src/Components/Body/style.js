@@ -13,8 +13,7 @@ export const BlackTheme = styled.div`
 `;
 export const Text = styled.p`
     letter-spacing: 1.5px;
-    margin-bottom:50px;
-    margin-left: 50px;
+    margin: 100px;
 `;
 export const BigInfoBlock = styled.div`
     width: 75%;
@@ -36,6 +35,7 @@ export const Meloch = styled.div`
 export const Solved = styled.div`
 border-radius: 4px;
 border: 1px solid #16EB80;
+margin: 40px;
 `;
 export const ni = styled.div`
     margin:100px;
