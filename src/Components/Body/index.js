@@ -1,28 +1,23 @@
-import React, {useState} from "react";
-import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved} from "./style.js"
+import React, {useState, useEffect} from "react";
+import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, ni} from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
 import { imageListItemBarClasses } from "@mui/material";
 import Alert from '@mui/material/Alert';
+import Grid from '@mui/material/Grid';
 
-const Body = () =>{
+const Body = ({}) =>{
     const [UserInput, setUserInput] = useState("")
-    const [aboba, setAboba] = useState(false)
 
     const [taskSolved1, settaskSolved1] = useState(false)
     const [taskSolved2, settaskSolved2] = useState(false)
 
-    const handlerOnChangeInput = (event) => {
-        setUserInput(event.target.value)
-        console.log(event)
-     }
-
-     const [stateBody, setStateBody] = useState(true)
-
-     const buttonClick = () => {
-        console.log(stateBody);
-        setStateBody(!stateBody);
-    }
+    useEffect(() => {
+        const storedName = localStorage.getItem('userName');
+        if (storedName) {
+            setUserInput(storedName);
+        }
+      }, []);
 
     return(
         <>
@@ -60,8 +55,8 @@ const Body = () =>{
             </BigInfoBlock>
             </BlackTheme>
             <BlackTheme>
-            
-                    <SmallInfoBlock>
+                    
+                    <Grid><ni>
                         <button className="Button1" onClick={() => {settaskSolved1(!taskSolved1)}}> Решить задачу</button>
                         {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}
 
@@ -70,19 +65,21 @@ const Body = () =>{
                         <p>Продолжительность: от часа до нескольких дней</p>
                         <p>Легко организовать</p>
                         </Text>
-                    </SmallInfoBlock>
-
-                    <SmallInfoBlock>
+                    </ni>
+                    </Grid>
+                    
+                    
+                    <Grid><ni>
                         <button className="Button1" onClick={() => {settaskSolved2(!taskSolved2)}}> Решить задачу</button>
                         
-                            {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
+                        {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
                         <Text>
                         <p>Командам выдается сервер, который на протяжении всего соревнования участники должны корректно поддерживать его работу и захватывать флаги чужых команд</p>
                         <p>Совсем не подходит для начинающих</p>
                         <p>Продолжительность: от 4 часов до нескольких дней</p>
                         <p>Сложно организовать</p>
-                        </Text>
-                    </SmallInfoBlock>
+                        </Text></ni>
+                    </Grid>
                     
             
             </BlackTheme>

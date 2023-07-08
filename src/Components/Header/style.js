@@ -10,7 +10,7 @@ export const ContainerHeader = styled.div`
     top: 0px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     
 `;
 export const StyledIcons =styled.a`

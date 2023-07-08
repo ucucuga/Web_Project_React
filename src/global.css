@@ -16,4 +16,15 @@ body{
     font-size: large;
     text-shadow: 1px 1px 2px #131516;
 }
-
+.btn_reg{
+    background-color: #fdf7f7;
+    border: 1px solid #131516;
+    text-decoration: none;
+    color: #131516;
+    margin: 20px;
+}
+.StyledIcons{
+    color: #fdf7f7 ;
+    background-color: #131516;
+    margin: 100px;
+}

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {ContainerHeader, StyledIcons, H2} from "./style.js"
 import {
     Routes,
@@ -18,10 +18,10 @@ const Header = () => {
   return (
     <ContainerHeader>
       <Grid><H2><Bounce><h2>CTF</h2></Bounce></H2></Grid>
-      <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <WavingHandIcon fontSize="large" /></StyledIcons></Grid>
-      <Grid><StyledIcons href="#flag_point"> <AssistantPhotoIcon fontSize="large" /></StyledIcons></Grid>
-      <Grid><StyledIcons href="#games_format"> <PublicIcon fontSize="large" /></StyledIcons></Grid>
-      <Grid><StyledIcons href="https://mui.com/material-ui/icons/"> <InfoIcon fontSize="large" /></StyledIcons></Grid>
+      <Grid><Link to="/" className="StyledIcons"><WavingHandIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/main-page/#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/main-page/#games_format" className="StyledIcons"><PublicIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
     </ContainerHeader>    
   );
 }

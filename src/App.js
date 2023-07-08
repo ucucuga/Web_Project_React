@@ -7,7 +7,7 @@ import Welcome from "./Components/Welcome"
 import Resources_1 from "./Components/Resources_1"
 import {
   Routes,
-  Route, BrowserRouter,
+  Route, BrowserRouter, Switch,
 } from 'react-router-dom';
 import ReactDOM from 'react-dom'
 
@@ -15,8 +15,9 @@ const App = () => {
 
            return(
             <>
-            <Fade top> <Header /></Fade>
+            
             <BrowserRouter>
+            <Fade top> <Header /></Fade>
             <Routes>
                 <Route path='/' element={<Fade top><Welcome/></Fade>}/>
                 <Route path='/main-page' element={<Fade top><Body/></Fade>}/>

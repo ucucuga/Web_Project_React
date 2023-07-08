@@ -37,3 +37,6 @@ export const Solved = styled.div`
 border-radius: 4px;
 border: 1px solid #16EB80;
 `;
+export const ni = styled.div`
+    margin:100px;
+`;
