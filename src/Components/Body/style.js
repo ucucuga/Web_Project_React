@@ -17,8 +17,8 @@ export const Text = styled.p`
 `;
 export const BigInfoBlock = styled.div`
     width: 75%;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 150px;
 `;
 export const SmallInfoBlock = styled.div`
@@ -39,4 +39,7 @@ margin: 40px;
 `;
 export const ni = styled.div`
     margin:100px;
+`;
+export const form = styled.p`
+   margin: 200px;
 `;

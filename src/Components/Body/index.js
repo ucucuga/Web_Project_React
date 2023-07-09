@@ -1,13 +1,15 @@
 import React, {useState, useEffect, PureComponent} from "react";
-import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, ni} from "./style.js"
+import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, ni, form} from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
 import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-
+import { GiPointySword } from "react-icons/gi";
+import "./style.css"
 const Body = ({}) =>{
+
+      
     const [UserInput, setUserInput] = useState("")
 
     const [taskSolved1, settaskSolved1] = useState(false)
@@ -125,33 +127,38 @@ const Body = ({}) =>{
                     <Line type="monotone" dataKey="baddy" stroke="#d88512" />
                     {taskSolved1 === true &&<Line type="monotone" dataKey="you" stroke="#D90368" />}
                     </LineChart>
-                        <button className="Button1" onClick={() => {settaskSolved1(!taskSolved1)}}> Решить задачу</button>
+
                         {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}                        
+                        <button className="Button1" onClick={() => {settaskSolved1(!taskSolved1)}}> Решить задачу</button>
+
                         <Text>
-                        <p>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</p>
-                        <p>Продолжительность: от часа до нескольких дней</p>
-                        <p>Легко организовать</p>
+                          <ul>
+                        <li>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</li>
+                        <li>Продолжительность: от часа до нескольких дней</li>
+                        <li>Легко организовать</li>
+                        </ul>
                         </Text>
                     
                     </Grid>
                     
                     
-                    <Grid><ni>
-                        <button className="Button1" onClick={() => {settaskSolved2(!taskSolved2)}}> Атаковать </button>
-                        
-                        {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
-                        <Text>
-                        <p>Командам выдается сервер, который на протяжении всего соревнования 
-                        участники должны корректно поддерживать его работу и захватывать флаги чужых команд</p>
-                        <p>Совсем не подходит для начинающих</p>
-                        <p>Продолжительность: от 4 часов до нескольких дней</p>
-                        <p>Сложно организовать</p>
-                        </Text></ni>
-                    </Grid>
+                    <Grid>
+                      
                     
-                    
+                      <GiPointySword size={180} className="sword" />
 
-      
+                        {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
+                        <button className="Button1"  onClick={() => {settaskSolved2(!taskSolved2)}}> Атаковать </button>
+                        <Text>
+                        <ul>
+                        <li>Командам выдается сервер, который на протяжении всего соревнования 
+                        участники должны корректно поддерживать его работу и захватывать флаги чужых команд</li>
+                        <li>Совсем не подходит для начинающих</li>
+                        <li>Продолжительность: от 4 часов до нескольких дней</li>
+                        <li>Сложно организовать</li>
+                        </ul>
+                        </Text>
+                    </Grid>
             </BlackTheme>
             </Fade>
         </ContainerBody>

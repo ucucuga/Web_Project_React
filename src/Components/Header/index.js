@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {ContainerHeader, StyledIcons, H2} from "./style.js"
+import './style.css';
 import {
     Routes,
     Route, BrowserRouter,
@@ -18,9 +19,9 @@ const Header = () => {
   return (
     <ContainerHeader>
       <Grid><H2><Bounce><h2>CTF</h2></Bounce></H2></Grid>
-      <Grid><Link to="/" className="StyledIcons"><WavingHandIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/" className="wave"><WavingHandIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="/main-page/#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
-      <Grid><Link to="/main-page/#games_format" className="StyledIcons"><PublicIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/main-page/#games_format" className="turning"><PublicIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="/" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
     </ContainerHeader>    
   );

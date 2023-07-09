@@ -1,0 +1,18 @@
+.sword {
+    animation-name: sword;  
+    animation-duration: 1s;        
+    animation-iteration-count: infinite;  
+    transform-origin: 0% 100%;       
+    display: inline-block;
+    color: #fdf7f7;
+    margin: 120px;
+  }
+  
+  @keyframes sword {
+    0% {
+        transform: translateY(0) rotate(0);
+      }
+      100% {
+        transform: translateY(-200px) rotate(180deg);
+      }
+  }
