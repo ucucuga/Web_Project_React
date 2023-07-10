@@ -9,8 +9,12 @@ import { GiPointySword } from "react-icons/gi";
 import "./style.css"
 import Avatar from '@mui/material/Avatar';
 import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
+import { motion } from "framer-motion"
 
 const Body = ({}) =>{
+  const [selectedId, setSelectedId] = useState(null)
+  
   const images = [
     {
       original: 'https://avatars.dzeninfra.ru/get-zen_doc/1722013/pub_5dfb64ce9515eef13079f27f_5dfb6ee9bc251400ac97e49a/scale_1200',
@@ -19,13 +23,13 @@ const Body = ({}) =>{
       original: 'https://isu.ifmo.ru/pls/apex/f?p=2143:0:0:DWNLD_F:NO::FILE:89261A543994539EB594F823B278066B',
     },
     {
-      original: 'https://pbs.twimg.com/media/EqEbRp6XMAEUUvv.jpg',
+      original: 'https://ctfnews.ru/uploads/photos/IMG_8507.jpg',
     },
     {
-      original: 'hhttps://i1.wp.com/apptractor.ru/wp-content/uploads/2017/12/DSC7607.jpg?fit=1400%2C749&ssl=1',
+      original: 'https://pp.userapi.com/c830309/v830309232/495c/N0GjSLCgMH0.jpg',
     },
     {
-      original: 'https://techcrunch.com/wp-content/uploads/2018/04/image004.jpg',
+      original: 'https://pp.userapi.com/c626520/v626520420/2fbd4/Uoset9FTHO8.jpg',
     },
   ];
       
@@ -95,8 +99,8 @@ const Body = ({}) =>{
         <>
         <ContainerBody>
             <Fade>
-            <BlackTheme>
-                <a name ="flag_point"></a>
+            <BlackTheme id ="flag_point">
+                
                 <Fade left big><SmallInfoBlock><img src={"https://png.pngtree.com/png-clipart/20230221/ourmid/pngtree-free-transparent-blank-waving-flag-png-image_6611961.png"}/></SmallInfoBlock></Fade>
                 <Fade left big>
                 <SmallInfoBlock>
@@ -111,7 +115,7 @@ const Body = ({}) =>{
                 </SmallInfoBlock>
                 </Fade>
             </BlackTheme>
-            <Bounce><Meloch><p id ={"games_format"}><span className="GreenText">Играя в CTF, ты не становишься инфобез специалистом!</span></p></Meloch></Bounce>
+            <Bounce><Meloch><p><span className="GreenText">Играя в CTF, ты не становишься инфобез специалистом!</span></p></Meloch></Bounce>
             </Fade>
             <Fade>
             <BlackTheme>
@@ -188,7 +192,7 @@ const Body = ({}) =>{
             </BlackTheme>
             </Fade>
             <Fade right>
-            <BigInfoBlock>
+            <BigInfoBlock id ="games_format">
               <Text>Есть ежегодные конференции, посвященные новостям и активностям, связанным с CTF и самое интересное,
                 что их количество увеличивается в геометрической прогрессии. Некоторые из них закрытые, а некоторые доступны для всех желающих.
                 Про мероприятия вы найдете информацию чуть ниже, а здесь покажем крупные соревнования в России  </Text>
@@ -231,8 +235,30 @@ const Body = ({}) =>{
                 <p >M*CTF Соревнования CTF от Московского Технического Университета Связи и Информатики(МТУСИ) для школьников и студентов </p>
                 </Grid>
             </Fle>
-           <ImageGallery items={images} width='560' height='315' />
+           <ImageGallery items={images}
+            showPlayButton = {false}
+            showFullscreenButton = {false}
+            autoPlay = {true}               
+            />
             </Fade>
+          
+ 
+            {/* {items.map(item => (
+              <motion.div layoutId={item.id} onClick={() => setSelectedId(item.id)}>
+                <motion.h5>{item.subtitle}</motion.h5>
+                <motion.h2>{item.title}</motion.h2>
+              </motion.div>
+            ))}
+
+            <AnimatePresence>
+              {selectedId && (
+                <motion.div layoutId={selectedId}>
+                  <motion.h5>{item.subtitle}</motion.h5>
+                  <motion.h2>{item.title}</motion.h2>
+                  <motion.button onClick={() => setSelectedId(null)} />
+                </motion.div>
+              )}
+            </AnimatePresence> */}
         </ContainerBody>
         
         </>
