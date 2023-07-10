@@ -1,5 +1,5 @@
 import React, {useState, useEffect, PureComponent} from "react";
-import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, ni, form} from "./style.js"
+import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, StyledDiv} from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
 import Alert from '@mui/material/Alert';
@@ -7,10 +7,14 @@ import Grid from '@mui/material/Grid';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { GiPointySword } from "react-icons/gi";
 import "./style.css"
+import Avatar from '@mui/material/Avatar';
+
 const Body = ({}) =>{
 
       
     const [UserInput, setUserInput] = useState("")
+    const handleClick = () => {settaskSolved2(!taskSolved2);};
+  
 
     const [taskSolved1, settaskSolved1] = useState(false)
     const [taskSolved2, settaskSolved2] = useState(false)
@@ -101,7 +105,7 @@ const Body = ({}) =>{
                         <p>{UserInput}, давай теперь познакомимся с форматами игр.</p>
                         <p>
                             CTF соревнования обычно рассчитаны для команд 3-5 человек для широкого спектора возрастов, также есть 2 основных формата
-                            проведения. Еще существует так называемый Pentest, но его почти не используют на соревнованиях.
+                            проведения. Еще существует так называемый Pentest, но его почти не используют на соревнованиях
                         </p>
             </BigInfoBlock>
             </BlackTheme>
@@ -134,7 +138,9 @@ const Body = ({}) =>{
                         <Text>
                           <ul>
                         <li>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</li>
+                        <br></br>
                         <li>Продолжительность: от часа до нескольких дней</li>
+                        <br></br>
                         <li>Легко организовать</li>
                         </ul>
                         </Text>
@@ -143,9 +149,12 @@ const Body = ({}) =>{
                     
                     
                     <Grid>
-                      
-                    
-                      <GiPointySword size={180} className="sword" />
+                    <StyledDiv>                                    
+                    {taskSolved2 ? 
+                      <GiPointySword size={170}  className="sword" /> : 
+                      <GiPointySword size={170} />
+                    }                      
+                    </StyledDiv>
 
                         {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
                         <button className="Button1"  onClick={() => {settaskSolved2(!taskSolved2)}}> Атаковать </button>
@@ -153,13 +162,32 @@ const Body = ({}) =>{
                         <ul>
                         <li>Командам выдается сервер, который на протяжении всего соревнования 
                         участники должны корректно поддерживать его работу и захватывать флаги чужых команд</li>
+                        <br></br>
                         <li>Совсем не подходит для начинающих</li>
+                        <br></br>
                         <li>Продолжительность: от 4 часов до нескольких дней</li>
+                        <br></br>
                         <li>Сложно организовать</li>
                         </ul>
                         </Text>
                     </Grid>
             </BlackTheme>
+            </Fade>
+            <Fade right>
+            <BigInfoBlock>
+              <Text>Есть крупные конференции, посвященные новостям и активностям, связанными с CTF и самое интересное,
+                что их количество увеличивается в геометрической прогрессии. Про мероприятия вы найдете информацию чуть ниже,
+                а здесь покажем крупные соревнования в России  </Text>
+            </BigInfoBlock>
+            
+            <Grid className="f">
+            <Avatar alt="RuCTF" src="https://yarsec.ru/upload/iblock/7f0/7f03c3f4923ce6a020343be7095d9514.jpg" sx={{ width: 200, height: 200 }}/>
+            <p sx = {{fontSize: 10}}>Очень крупное соревнование, организованное Хакердомом с 2008</p>
+            </Grid>
+            <Grid className="f">
+            <Avatar alt="M*CTF" src="https://ctftime.org/media/events/MCTF_blue.jpg" sx={{ width: 200, height: 200 }}/>
+            <p>Соревнования проходят для сутдентов и школьников, сделанные МТУСИ</p>
+            </Grid>
             </Fade>
         </ContainerBody>
         

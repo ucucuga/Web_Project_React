@@ -9,7 +9,7 @@ import {
   Routes,
   Route, BrowserRouter, Switch,
 } from 'react-router-dom';
-import ReactDOM from 'react-dom'
+
 
 const App = () => {
 
@@ -24,6 +24,7 @@ const App = () => {
                 <Route path='/library' element={<Fade top><Resources_1/></Fade>}/>
             </Routes>
             </BrowserRouter>
+          
             <Fade top><Footer /></Fade>
             </>
            )

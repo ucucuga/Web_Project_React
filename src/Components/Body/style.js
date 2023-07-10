@@ -37,9 +37,8 @@ border-radius: 4px;
 border: 1px solid #16EB80;
 margin: 40px;
 `;
-export const ni = styled.div`
-    margin:100px;
-`;
-export const form = styled.p`
-   margin: 200px;
+export const StyledDiv = styled.div`
+height: 300px;
+width: 500px;
+margin-left: 100px;
 `;

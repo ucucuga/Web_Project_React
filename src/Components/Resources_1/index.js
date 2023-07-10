@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved} from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
