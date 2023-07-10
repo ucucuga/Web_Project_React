@@ -13,15 +13,15 @@ import InfoIcon from '@mui/icons-material/Info';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import {Link} from "react-router-dom"
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Header = () => {
   return (
     <ContainerHeader>
       <Grid><H2><Bounce><h2>CTF</h2></Bounce></H2></Grid>
       <Grid><Link to="/" className="wave"><WavingHandIcon fontSize="large" /></Link></Grid>
-      <Grid><Link to="/main-page/#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
-      <Grid><Link to="/main-page/#games_format" className="turning"><PublicIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="#games_format" className="turning"><PublicIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="/" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
     </ContainerHeader>    
   );

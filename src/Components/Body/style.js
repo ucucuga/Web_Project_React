@@ -42,3 +42,6 @@ height: 300px;
 width: 500px;
 margin-left: 100px;
 `;
+export const Fle = styled.div`
+display: flex;
+`;
