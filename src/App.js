@@ -4,7 +4,7 @@ import Body from "./Components/Body"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Welcome from "./Components/Welcome"
-import Resources_1 from "./Components/Resources_1"
+import Test from "./Components/Test"
 import {
   Routes,
   Route, BrowserRouter, Switch,
@@ -21,7 +21,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Fade top><Welcome/></Fade>}/>
                 <Route path='/main-page' element={<Fade top><Body/></Fade>}/>
-                <Route path='/library' element={<Fade top><Resources_1/></Fade>}/>
+                <Route path='/test' element={<Fade top><Test /></Fade>}/>
             </Routes>
             <Fade top><Footer /></Fade>
             </BrowserRouter>

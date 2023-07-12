@@ -11,17 +11,20 @@ import Avatar from '@mui/material/Avatar';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import { motion } from "framer-motion"
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import { styled } from 'styled-components';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import QuizIcon from '@mui/icons-material/Quiz';
+import {Link} from 'react-router-dom';
+import rickroll from '../Footer/never-gonna-give-u-up.mp3';
+import useSound from 'use-sound';
+
+
 
 const Body = ({ }) => {
   const [selectedId, setSelectedId] = useState(null)
-
+  const [play] = useSound(rickroll);
   const handlerScrollUp = () => {
     window.scrollTo({
       top: 0,
@@ -293,7 +296,7 @@ const Body = ({ }) => {
                   и другие материалы, по которым можешь обучаться
                   <br></br>
                   <br></br>
-                  <MenuBookIcon fontSize="large"/>
+                  <MenuBookIcon fontSize="large" onClick={play} />
                 </WhiteText> :
                 <Title>Учебные сайты</Title>
                 }
@@ -312,7 +315,7 @@ const Body = ({ }) => {
                   подробно ты можешь изучить его на нашем Stepik курсе
                   <br></br>
                   <br></br>
-                   <SchoolIcon fontSize="large"/>
+                   <SchoolIcon fontSize="large" onClick={play}/>
                 </WhiteText>
                 :
                 <Title>Курс на Stepik</Title>
@@ -332,7 +335,7 @@ const Body = ({ }) => {
                   а так же популярные CTF из других стран.
                   <br></br>
                   <br></br>
-                  <PlayCircleOutlineIcon fontSize="large"/>
+                  <PlayCircleOutlineIcon fontSize="large" onClick={play}/>
                 </WhiteText> :
                 <Title>Соревнования</Title>
                 }
@@ -351,7 +354,7 @@ const Body = ({ }) => {
                   Тут можешь пройти маленький тестик
                   <br></br>
                   <br></br>
-                  <QuizIcon fontSize="large"/>
+                  <Link to='/test'><QuizIcon fontSize="large" style={{color: '#fff'}}/></Link>
                 </WhiteText> :
                 <Title>Тест</Title>
                 }
