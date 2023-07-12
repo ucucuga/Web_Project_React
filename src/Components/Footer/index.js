@@ -7,7 +7,6 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SchoolIcon from '@mui/icons-material/School';
 import { TypeAnimation } from 'react-type-animation';
-import "./style.css";
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import useSound from 'use-sound';
@@ -25,18 +24,18 @@ const Footer = () => {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        className="nav"
+        style={{background: '#131516'}}
       >
         <BottomNavigationAction onClick={play} label="Stepik CTF" icon={<SchoolIcon />} sx={{ color: '#fdf7f7' }} />
         <BottomNavigationAction label="Обратная связь" icon={<MailOutlineIcon />} sx={{ color: '#fdf7f7' }} />
         <BottomNavigationAction label="Оставить отзыв на курс" icon={<ChatIcon />} sx={{ color: '#fdf7f7' }} />
         <BottomNavigation>
-          <TypeAnimation
+          {/* <TypeAnimation
             sequence={['Be stronger', 1000, 'Be smarter', 1000, 'Be better', 1000]}
-            style={{ fontSize: '1em' }}
+            style={{ fontSize: '1em', width: 200, marginLeft: 20, background: 'rgba(135, 135, 152, 0.955)'}}
             cursor={true}
             repeat={Infinity}
-          />
+          /> */}
         </BottomNavigation>
       </BottomNavigation>
     </Box>

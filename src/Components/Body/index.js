@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from "react";
-import { ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, StyledDiv, Fle, WhiteText, BlackTheme2, BlackBlackTheme } from "./style.js"
+import { ContainerBody, Text, BigInfoBlock, BlackTheme, SmallInfoBlock, Meloch, Solved, StyledDiv, Fle, WhiteText, BlackTheme2, BlackBlackTheme, Title } from "./style.js"
 import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce';
 import Alert from '@mui/material/Alert';
@@ -13,6 +13,11 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { motion } from "framer-motion"
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { styled } from 'styled-components';
+import SchoolIcon from '@mui/icons-material/School';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import QuizIcon from '@mui/icons-material/Quiz';
 
 const Body = ({ }) => {
   const [selectedId, setSelectedId] = useState(null)
@@ -23,7 +28,7 @@ const Body = ({ }) => {
       left: 0,
       behavior: 'smooth',
     });
-    }
+  }
 
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -113,61 +118,62 @@ const Body = ({ }) => {
   return (
     <>
       <ContainerBody>
-        <Fade>
-          <BlackTheme id="flag_point">
 
-            <Fade left big><SmallInfoBlock><img src={"https://png.pngtree.com/png-clipart/20230221/ourmid/pngtree-free-transparent-blank-waving-flag-png-image_6611961.png"} /></SmallInfoBlock></Fade>
+        <BlackTheme id="flag_point">
+
+          <Fade left big><SmallInfoBlock><img src={"https://png.pngtree.com/png-clipart/20230221/ourmid/pngtree-free-transparent-blank-waving-flag-png-image_6611961.png"} /></SmallInfoBlock></Fade>
+          <Fade right>
+            <SmallInfoBlock>
+              <Text>
+                <p>Ну смотри, {UserInput}</p>
+                <p>CTF — <span className="GreenText">Capture The Flag</span>, также известный под русифицированным вариантом — Захват флага, это игровая информационная безопасность, набирающая
+                  большую популярность за последние годы. За основу взяты инструменты и приемы реальных безопасников, но на работе как правило нет таких <span className="GreenText">"уцуцуг"</span>, как в CTF.
+                  И нет, {UserInput}, это не означает, что после нескольких занятий <span className="GreenText">ты сможешь взломать</span> бабушкин чайник или профиль Одноклассника. Вас познакомят с уязвимостями
+                  и многим другим, чтобы в том числе не <span className="GreenText">стать жертвой злоумышленников</span>. CTF разделен на несколько разделов, так что каждый найдет что-то для себя!
+                </p>
+              </Text>
+            </SmallInfoBlock>
+          </Fade>
+        </BlackTheme>
+        <Bounce><Meloch><p><span className="GreenText">Играя в CTF, ты не становишься инфобез специалистом!</span></p></Meloch></Bounce>
+
+        <BlackTheme>
+          <BigInfoBlock>
             <Fade left big>
-              <SmallInfoBlock>
-                <Text>
-                  <p>Ну смотри, {UserInput}</p>
-                  <p>CTF — <span className="GreenText">Capture The Flag</span>, также известный под русифицированным вариантом — Захват флага, это игровая информационная безопасность, набирающая
-                    большую популярность за последние годы. За основу взяты инструменты и приемы реальных безопасников, но на работе как правило нет таких <span className="GreenText">"уцуцуг"</span>, как в CTF.
-                    И нет, {UserInput}, это не означает, что после нескольких занятий <span className="GreenText">ты сможешь взломать</span> бабушкин чайник или профиль Одноклассника. Вас познакомят с уязвимостями
-                    и многим другим, чтобы в том числе не <span className="GreenText">стать жертвой злоумышленников</span>. CTF разделен на несколько разделов, так что каждый найдет что-то для себя!
-                  </p>
-                </Text>
-              </SmallInfoBlock>
-            </Fade>
-          </BlackTheme>
-          <Bounce><Meloch><p><span className="GreenText">Играя в CTF, ты не становишься инфобез специалистом!</span></p></Meloch></Bounce>
-        </Fade>
-        <Fade>
-          <BlackTheme>
-            <BigInfoBlock>
               <p  >{UserInput}, давай теперь познакомимся с форматами игр.</p>
               <p>
                 CTF соревнования обычно рассчитаны для команд 3-5 человек для широкого спектора возрастов, также есть 2 основных формата
                 проведения. Еще существует так называемый Pentest, но его почти не используют на соревнованиях
               </p>
-            </BigInfoBlock>
-          </BlackTheme>
-          <BlackTheme>
-            <Grid>
-              <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5
-                }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="hacker" stroke="#8884d8" />
-                <Line type="monotone" dataKey="master" stroke="#82ca9d" />
-                <Line type="monotone" dataKey="baddy" stroke="#d88512" />
-                {taskSolved1 === true && <Line type="monotone" dataKey="you" stroke="#D90368" />}
-              </LineChart>
+            </Fade>
+          </BigInfoBlock>
+        </BlackTheme>
+        <BlackTheme>
+          <Grid>
+            <LineChart
+              width={500}
+              height={300}
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5
+              }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="hacker" stroke="#8884d8" />
+              <Line type="monotone" dataKey="master" stroke="#82ca9d" />
+              <Line type="monotone" dataKey="baddy" stroke="#d88512" />
+              {taskSolved1 === true && <Line type="monotone" dataKey="you" stroke="#D90368" />}
+            </LineChart>
 
-              {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}
-              <button className="Button1" onClick={() => { settaskSolved1(!taskSolved1) }}> Решить задачу</button>
-
+            {taskSolved1 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Ты нашел флаг! Поздравляю, {UserInput}</span></Alert></Solved></Fade>}
+            <button className="Button1" onClick={() => { settaskSolved1(!taskSolved1) }}> Решить задачу</button>
+            <Fade left big>
               <Text>
                 <ul>
                   <li>Решение задач из разных категорий, где подтверждением успешного прохождения задания есть флаг</li>
@@ -177,20 +183,21 @@ const Body = ({ }) => {
                   <li>Легко организовать</li>
                 </ul>
               </Text>
+            </Fade>
+          </Grid>
 
-            </Grid>
 
+          <Grid>
+            <StyledDiv>
+              {taskSolved2 ?
+                <GiPointySword size={170} className="sword" /> :
+                <GiPointySword size={170} />
+              }
+            </StyledDiv>
 
-            <Grid>
-              <StyledDiv>
-                {taskSolved2 ?
-                  <GiPointySword size={170} className="sword" /> :
-                  <GiPointySword size={170} />
-                }
-              </StyledDiv>
-
-              {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
-              <button className="Button1" onClick={() => { settaskSolved2(!taskSolved2) }}> Атаковать </button>
+            {taskSolved2 === true && <Fade><Solved><Alert variant="outlined" severity="success"><span className="GreenText">Атака прошла успешно! Вы получили очки</span></Alert></Solved></Fade>}
+            <button className="Button1" onClick={() => { settaskSolved2(!taskSolved2) }}> Атаковать </button>
+            <Fade right>
               <Text>
                 <ul>
                   <li>Командам выдается сервер, который на протяжении всего соревнования
@@ -203,46 +210,49 @@ const Body = ({ }) => {
                   <li>Сложно организовать</li>
                 </ul>
               </Text>
-            </Grid>
-          </BlackTheme>
-        </Fade>
-        <Fade right>
+            </Fade>
+          </Grid>
+        </BlackTheme>
+
+        <Fade>
           <BigInfoBlock id="games_format">
             <Text>Есть ежегодные конференции, посвященные новостям и активностям, связанным с CTF и самое интересное,
               что их количество увеличивается в геометрической прогрессии. Некоторые из них закрытые, а некоторые доступны для всех желающих.
               Про мероприятия вы найдете информацию чуть ниже, а здесь покажем крупные соревнования в России  </Text>
           </BigInfoBlock>
-
+        </Fade>
+        <Fade right>
           <Fle>
             <Grid className="f">
               <Avatar alt="RuCTF" src="https://yarsec.ru/upload/iblock/7f0/7f03c3f4923ce6a020343be7095d9514.jpg" sx={{ width: 200, height: 200 }} />
               <p>Крупное соревнование по информационной безопасности, организованное Хакердомом с 2008</p>
             </Grid>
             <Grid className="f">
-              <Avatar alt="RuCTF" src="https://sbergraduate.ru/wp-content/uploads/2020/11/CTF.jpg" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="Кубок CTF" src="https://sbergraduate.ru/wp-content/uploads/2020/11/CTF.jpg" sx={{ width: 200, height: 200 }} />
               <p>Ежегодное масштабное соревнование, где лучшая команда получит Кубок CTF России</p>
             </Grid>
             <Grid className="f" >
-              <Avatar alt="M*CTF" src="https://static.tildacdn.com/tild6237-3436-4861-a165-353131306636/image_2022-03-15_19-.png" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="InnoCTF" src="https://static.tildacdn.com/tild6237-3436-4861-a165-353131306636/image_2022-03-15_19-.png" sx={{ width: 200, height: 200 }} />
               <p>На базе Innopolis University проводятся InnoCTF Junior с 2018. Может давать дополнительные баллы при поступлении в ВУЗы </p>
             </Grid>
             <Grid className="f" >
-              <Avatar alt="M*CTF" src="https://ctf.tinkoff.ru/assets/arts/hero-bg.svg" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="Tinkoff CTF" src="https://ctf.tinkoff.ru/assets/arts/hero-bg.svg" sx={{ width: 200, height: 200 }} />
               <p > Летом 2023 прошло первое CTF соревнование от Tinkoff </p>
             </Grid>
           </Fle>
+        </Fade>
+        <Fade left big>
           <Fle>
-
             <Grid className="f" >
-              <Avatar alt="M*CTF" src="https://ctfnews.ru/uploads/files/cGWOsYyurS8.jpg" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="UgraCTF" src="https://ctfnews.ru/uploads/files/cGWOsYyurS8.jpg" sx={{ width: 200, height: 200 }} />
               <p >Популярное соревнование для всех возрастов, сделанное командой [team Team] </p>
             </Grid>
             <Grid className="f" >
-              <Avatar alt="M*CTF" src="https://vtruda.ru/media/pictures/12357.jpg" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="Всерос" src="https://vtruda.ru/media/pictures/12357.jpg" sx={{ width: 200, height: 200 }} />
               <p > С 2022 года на ВСЕРОСе в разделе "Технология" появился новый раздел — Информационная безопасность </p>
             </Grid>
             <Grid className="f" >
-              <Avatar alt="M*CTF" src="https://sun6-22.userapi.com/s/v1/if1/7b3pTa3PLwxWTDNthutJL9Bt0-ASVzxoP0scAdMrCzRtX2uznJ2LUFvvPrH8kN9KzK0hFOF4.jpg?size=2101x2101&quality=96&crop=2,30,2101,2101&ava=1" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="НТО" src="https://sun6-22.userapi.com/s/v1/if1/7b3pTa3PLwxWTDNthutJL9Bt0-ASVzxoP0scAdMrCzRtX2uznJ2LUFvvPrH8kN9KzK0hFOF4.jpg?size=2101x2101&quality=96&crop=2,30,2101,2101&ava=1" sx={{ width: 200, height: 200 }} />
               <p > Национальная технологическая олимпиада(НТО) рассчитана для школьников, и дает баллы при поступлении. Организовано НИЯУ МИФИ </p>
             </Grid>
             <Grid className="f" >
@@ -250,24 +260,26 @@ const Body = ({ }) => {
               <p >M*CTF Соревнования CTF от Московского Технического Университета Связи и Информатики(МТУСИ) для школьников и студентов </p>
             </Grid>
           </Fle>
-          <ImageGallery items={images}
-            showPlayButton={false}
-            showFullscreenButton={false}
-            autoPlay={true}
-          />
         </Fade>
+
+        <ImageGallery items={images}
+          showPlayButton={false}
+          showFullscreenButton={false}
+          autoPlay={true}
+        />
       </ContainerBody>
       <BlackBlackTheme>
         <BlackTheme2 className="gif" id="info_point">
-
-          <WhiteText>Ну вот и все, {UserInput}. Это был краткий экскурс в CTF, а здесь ты можешь
-            ознакомиться подробнее с материалами
-          </WhiteText>
+          <Fade right>
+            <WhiteText>Ну вот и все, {UserInput}. Это был краткий экскурс в CTF, а здесь ты можешь
+              ознакомиться подробнее с материалами
+            </WhiteText>
+          </Fade>
           <Grid
-            sx={{ ml: '15%' }}
             container
             direction="row"
             alignItems="center"
+            className="items"
           >
             <Grid item xs={6}>
               <motion.h5
@@ -277,8 +289,13 @@ const Body = ({ }) => {
                 onClick={() => setIsOpen1(!isOpen1)}
                 transition={{ stiffness: 200, damping: 10 }}
               >{isOpen1 ?
-                <WhiteText>блаблабла</WhiteText> :
-                <WhiteText>Учебные сайты</WhiteText>
+                <WhiteText>Перейдя в этот раздел ты найдешь множество сайтов с задачами, видео,
+                  и другие материалы, по которым можешь обучаться
+                  <br></br>
+                  <br></br>
+                  <MenuBookIcon fontSize="large"/>
+                </WhiteText> :
+                <Title>Учебные сайты</Title>
                 }
               </motion.h5></Grid>
 
@@ -290,8 +307,15 @@ const Body = ({ }) => {
                 onClick={() => setIsOpen2(!isOpen2)}
                 transition={{ stiffness: 200, damping: 10 }}
               >{isOpen2 ?
-                <WhiteText>блаблабла</WhiteText> :
-                <WhiteText>Курс на Stepik</WhiteText>
+                
+                <WhiteText>Этот сайт создан для краткого ознакомления с CTF. Более
+                  подробно ты можешь изучить его на нашем Stepik курсе
+                  <br></br>
+                  <br></br>
+                   <SchoolIcon fontSize="large"/>
+                </WhiteText>
+                :
+                <Title>Курс на Stepik</Title>
                 }
               </motion.h5>
             </Grid>
@@ -304,8 +328,13 @@ const Body = ({ }) => {
                 onClick={() => setIsOpen3(!isOpen3)}
                 transition={{ stiffness: 200, damping: 10 }}
               >{isOpen3 ?
-                <WhiteText>блаблабла</WhiteText> :
-                <WhiteText>Соревнования</WhiteText>
+                <WhiteText>В этом разделе ты найдешь Российские соревнования/конференции,
+                  а так же популярные CTF из других стран.
+                  <br></br>
+                  <br></br>
+                  <PlayCircleOutlineIcon fontSize="large"/>
+                </WhiteText> :
+                <Title>Соревнования</Title>
                 }
               </motion.h5>
             </Grid>
@@ -318,13 +347,18 @@ const Body = ({ }) => {
                 onClick={() => setIsOpen4(!isOpen4)}
                 transition={{ stiffness: 200, damping: 10 }}
               >{isOpen4 ?
-                <WhiteText>bdhjfbhkdsbfhkbsd</WhiteText> :
-                <WhiteText>Тест</WhiteText>
+                <WhiteText>
+                  Тут можешь пройти маленький тестик
+                  <br></br>
+                  <br></br>
+                  <QuizIcon fontSize="large"/>
+                </WhiteText> :
+                <Title>Тест</Title>
                 }
               </motion.h5>
             </Grid>
           </Grid>
-          <KeyboardDoubleArrowUpIcon onClick={handlerScrollUp} className="upButton"  size = '20x'/>
+          <KeyboardDoubleArrowUpIcon onClick={handlerScrollUp} className="upButton" fontSize="large" />
         </BlackTheme2>
       </BlackBlackTheme>
     </>
