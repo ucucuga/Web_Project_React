@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerFooter = styled.div`
-width: 100%;
-color: #fdf7f7;
-background-color: #131516;
-height: 40px;
+    color: #fdf7f7;
+    width: 100%;
+    background-color: #131516;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 `;

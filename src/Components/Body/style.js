@@ -45,3 +45,24 @@ margin-left: 100px;
 export const Fle = styled.div`
 display: flex;
 `;
+export const WhiteText = styled.p`
+    margin: 50px;
+    color: #fdf7f7;
+    letter-spacing: 1.5px;
+    text-align: center;
+    justify-content: center;
+`;
+export const BlackTheme2 = styled.div`
+    margin-top: 100px;
+    width: 100%;
+    background-color: #131516;
+    color:  #fdf7f7;
+    
+`;
+export const BlackBlackTheme = styled.div`
+margin-top: 300px;
+    width: 100%;
+    background-color: #000;
+    color:  #fdf7f7;
+    display: flex;   
+`;

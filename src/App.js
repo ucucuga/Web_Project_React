@@ -23,9 +23,10 @@ const App = () => {
                 <Route path='/main-page' element={<Fade top><Body/></Fade>}/>
                 <Route path='/library' element={<Fade top><Resources_1/></Fade>}/>
             </Routes>
+            <Fade top><Footer /></Fade>
             </BrowserRouter>
           
-            <Fade top><Footer /></Fade>
+            
             </>
            )
 }

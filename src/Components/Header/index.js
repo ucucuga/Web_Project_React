@@ -22,7 +22,7 @@ const Header = () => {
       <Grid><Link to="/" className="wave"><WavingHandIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="#games_format" className="turning"><PublicIcon fontSize="large" /></Link></Grid>
-      <Grid><Link to="/" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="#info_point" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
     </ContainerHeader>    
   );
 }
