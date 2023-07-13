@@ -5,8 +5,7 @@ export const ContainerFooter = styled.div`
     width: 100%;
     background-color: #131516;
     height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    position: absolute;
+    bottom: 0;
+    left: 0;
 `;

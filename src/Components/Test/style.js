@@ -11,3 +11,14 @@ export const Text = styled.h3`
     margin-bottom:20px;
     color: #D90368;
 `;
+export const Answer = styled.h3`
+    letter-spacing: 1.5px;
+    margin-top :70px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom :40px;
+
+    color: #131516;
+
+
+`;

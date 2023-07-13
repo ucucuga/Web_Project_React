@@ -1,11 +1,19 @@
 import React, { useState, useContext } from "react";
-import { ContainerBody, Text } from "./style.js"
+import { ContainerBody, Text, Answer } from "./style.js"
 import flag from "./CTF_flag.png"
+import {useSound} from 'use-sound';
+import pipe from './metal-pipe-clang.mp3';
+import { stop } from 'use-sound';
 
 const Test = () => {
   const [answers, setAnswers] = useState([]);
   const [active, setActive] = useState(false);
+  const [play, { sound, stop}] = useSound(pipe);
 
+  const handleSound = () => {
+    stop();
+    play();
+  };
   const questions = [
     {
       question: "Любишь работать с чем-нибудь красивым?",
@@ -43,13 +51,13 @@ const Test = () => {
     const mostSelectedIndex = optionCount.indexOf(Math.max(...optionCount));
     let ans = ""
     if (mostSelectedIndex === 0 ) {
-      ans = "Первый"
+      ans = "О, да ты вэбер! Тебе вероятно понравится работать с уязвимостями сайтов, а также поизучать инъекции! В CTF как раз есть категория WEB"
     } else if (mostSelectedIndex === 1) {
-      ans = "Второй"
+      ans = "Тебе скорее всего зайдет категория криптография/стеганография. Тебе интересно было бы расшифровывать шифры  Необходимо хорошо понимать математику, но также нужно знать много приложений для дешифровки."
     } else if (mostSelectedIndex === 2) {
-      ans = "Третий"
+      ans = "Уффф, твой путь будет не прост, так как ты ревёрсер. Тебя больше интересует работа с железом. И ты либо стал, либо станешь заядлым линуксером. Будь осторожен!!! Есть риск потолстеть, облысеть и начать ругаться на людей добрых."
     }
-    return ans;
+    return <Answer>{ans}</Answer>;
   };
 
   return (
@@ -71,22 +79,10 @@ const Test = () => {
           ))}
         </div>
       ))}
-      { /* {active === true && getMostSelectedOption() == 1 ? <p>хуй</p>:
-        getMostSelectedOption() == 2 ? <p>второй</p>:
-        <p>третий</p>
-      } */ }
       {active === true && getMostSelectedOption()}
-      <button onClick={() => {setActive(!active)}} className="Button2">
+      <button onClick={() => {setActive(!active); handleSound()} } className="Button2">
         Показать результаты
       </button>
-{/*       
-        ({getMostSelectedOption() === 1 && {active} === true}) {
-          <p>первый</p>
-        } else if ({getMostSelectedOption() === 2 && {active} === true}) {
-          <p>второй</p>
-        } else if ({getMostSelectedOption() === 3 && {active} === true}) {
-          <p>третий</p>
-        } */}
     </ContainerBody>
   );
 };

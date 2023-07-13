@@ -55,8 +55,8 @@ justify-content: center;
 
 .upButton{
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  right: 10px;
+  bottom: 70px;
   color: #fdf7f7;
 }
 .items{

@@ -18,6 +18,9 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import QuizIcon from '@mui/icons-material/Quiz';
 import {Link} from 'react-router-dom';
 import rickroll from '../Footer/never-gonna-give-u-up.mp3';
+import fnaf from './fnaf_sound.mp3';
+import augh from './aughhhhh.mp3';
+import vine from './vine-boom.mp3';
 import useSound from 'use-sound';
 
 
@@ -25,6 +28,11 @@ import useSound from 'use-sound';
 const Body = ({ }) => {
   const [selectedId, setSelectedId] = useState(null)
   const [play] = useSound(rickroll);
+  const [play2] = useSound(fnaf);
+  const [play3] = useSound(augh);
+  const [play4] = useSound(vine);
+
+
   const handlerScrollUp = () => {
     window.scrollTo({
       top: 0,
@@ -251,7 +259,7 @@ const Body = ({ }) => {
               <p >Популярное соревнование для всех возрастов, сделанное командой [team Team] </p>
             </Grid>
             <Grid className="f" >
-              <Avatar alt="Всерос" src="https://vtruda.ru/media/pictures/12357.jpg" sx={{ width: 200, height: 200 }} />
+              <Avatar alt="Всерос" src="https://spb-pansion.mil.ru/upload/site192/document_news/pC7OY0H87q.jpg" sx={{ width: 200, height: 200 }} />
               <p > С 2022 года на ВСЕРОСе в разделе "Технология" появился новый раздел — Информационная безопасность </p>
             </Grid>
             <Grid className="f" >
@@ -296,7 +304,7 @@ const Body = ({ }) => {
                   и другие материалы, по которым можешь обучаться
                   <br></br>
                   <br></br>
-                  <MenuBookIcon fontSize="large" onClick={play} />
+                  <MenuBookIcon fontSize="large" onClick={play4} />
                 </WhiteText> :
                 <Title>Учебные сайты</Title>
                 }
@@ -315,7 +323,7 @@ const Body = ({ }) => {
                   подробно ты можешь изучить его на нашем Stepik курсе
                   <br></br>
                   <br></br>
-                   <SchoolIcon fontSize="large" onClick={play}/>
+                   <SchoolIcon fontSize="large" onClick={play3}/>
                 </WhiteText>
                 :
                 <Title>Курс на Stepik</Title>
@@ -335,7 +343,7 @@ const Body = ({ }) => {
                   а так же популярные CTF из других стран.
                   <br></br>
                   <br></br>
-                  <PlayCircleOutlineIcon fontSize="large" onClick={play}/>
+                  <PlayCircleOutlineIcon fontSize="large" onClick={play2}/>
                 </WhiteText> :
                 <Title>Соревнования</Title>
                 }

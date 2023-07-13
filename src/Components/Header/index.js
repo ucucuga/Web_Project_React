@@ -20,7 +20,7 @@ const Header = () => {
     <ContainerHeader>
       <Grid><H2><Bounce><h2>CTF</h2></Bounce></H2></Grid>
       <Grid><Link to="/" className="wave"><WavingHandIcon fontSize="large" /></Link></Grid>
-      <Grid><Link to="#flag_point" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
+      <Grid><Link to="/main-page" className="StyledIcons"><AssistantPhotoIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="#games_format" className="turning"><PublicIcon fontSize="large" /></Link></Grid>
       <Grid><Link to="#info_point" className="StyledIcons"><InfoIcon fontSize="large" /></Link></Grid>
     </ContainerHeader>    
